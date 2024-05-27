@@ -7,7 +7,7 @@ import java.nio.file.Files;
 import java.nio.file.Path;
 
 public class TestParse {
-    public static void main(String[] args) throws Exception {
+    public static void main(String[] args) {
         // 运行该测试前，建议先运行其他两个中的任何一个
 
         Path path = Path.of("file/template.epub");

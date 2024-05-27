@@ -8,7 +8,7 @@ public class Spine {
     private Linear linear;
 
     public enum Linear {
-        yes, no;
+        yes, no
     }
 
     public Resource getResource() {

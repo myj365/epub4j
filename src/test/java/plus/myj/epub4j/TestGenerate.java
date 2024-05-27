@@ -3,7 +3,6 @@ package plus.myj.epub4j;
 import plus.myj.epub4j.constant.ConstStr;
 import plus.myj.epub4j.entity.*;
 
-import java.io.IOException;
 import java.nio.charset.Charset;
 import java.nio.charset.StandardCharsets;
 import java.nio.file.Path;
@@ -11,7 +10,7 @@ import java.time.LocalDate;
 import java.util.*;
 
 public class TestGenerate {
-    public static void main(String[] args) throws IOException {
+    public static void main(String[] args) {
         Path path = Path.of("file/template.epub");
 
         Book book = makeBook();
@@ -24,7 +23,7 @@ public class TestGenerate {
         Charset charset = StandardCharsets.UTF_8;
 
         Resource chapter1 = getChapter1(charset);
-        Resource chapter2 = getChapter2(charset);
+        Resource chapter2 = getChapter2();
         Resource css = getCss(charset);
         Resource cover = getCover(charset);
         Resource coverImage = getCoverImage();
@@ -71,7 +70,7 @@ public class TestGenerate {
         resource.setContent(s.getBytes(charset));
         return resource;
     }
-    private static Resource getChapter2(Charset charset) {
+    private static Resource getChapter2() {
         String s = """
                 <html xmlns="http://www.w3.org/1999/xhtml" xml:lang="zh-CN">
                 <head>
