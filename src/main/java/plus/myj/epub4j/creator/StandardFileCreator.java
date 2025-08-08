@@ -5,7 +5,7 @@ import plus.myj.epub4j.entity.EpubFile;
 
 import java.nio.charset.Charset;
 
-public class StandardFIleCreator {
+public class StandardFileCreator {
     public static EpubFile createMimetype(Charset charset) {
         EpubFile epubFile = new EpubFile();
 

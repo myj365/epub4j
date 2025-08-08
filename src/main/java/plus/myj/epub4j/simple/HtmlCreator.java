@@ -10,6 +10,7 @@ import java.nio.charset.Charset;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Objects;
+import java.util.UUID;
 
 public class HtmlCreator {
     public static List<Resource> create(List<Chapter> chapters, Charset charset) {
@@ -17,14 +18,14 @@ public class HtmlCreator {
         Objects.requireNonNull(charset);
 
         List<Resource> htmlResources = new ArrayList<>();
-        for (Chapter chapter : chapters) {
-            Resource htmlResource = createHtmlResource(chapter, charset);
+        for (int i = 0; i < chapters.size(); i++) {
+            Resource htmlResource = createHtmlResource(chapters.get(i), charset, i);
             htmlResources.add(htmlResource);
         }
         return htmlResources;
     }
 
-    private static Resource createHtmlResource(Chapter chapter, Charset charset) {
+    private static Resource createHtmlResource(Chapter chapter, Charset charset, int index) {
         String htmlTemplate = """
                 <html xmlns="http://www.w3.org/1999/xhtml" xml:lang="zh-CN">
                 <head>
@@ -56,7 +57,7 @@ public class HtmlCreator {
         final String html = String.format(htmlTemplate, charset.toString(), title, title, content);
 
         Resource resource = new Resource();
-        resource.setPath(chapter.getTitle());
+        resource.setPath("chapter" + StrUtil.getFormatNumber(index) + ".html");
         resource.setContent(html.getBytes(charset));
         resource.setMediaType(ConstStr.MediaType.xhtml);
 

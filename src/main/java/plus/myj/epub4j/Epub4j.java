@@ -1,7 +1,7 @@
 package plus.myj.epub4j;
 
 import plus.myj.epub4j.creator.OpfCreator;
-import plus.myj.epub4j.creator.StandardFIleCreator;
+import plus.myj.epub4j.creator.StandardFileCreator;
 import plus.myj.epub4j.entity.EpubFile;
 import plus.myj.epub4j.util.ZipUtil;
 import plus.myj.epub4j.creator.NcxCreator;
@@ -31,8 +31,8 @@ public class Epub4j {
         }
 
         List<EpubFile> epubFiles = new ArrayList<>();
-        epubFiles.add(StandardFIleCreator.createMimetype(book.getCharset()));
-        epubFiles.add(StandardFIleCreator.createContainer(book.getCharset()));
+        epubFiles.add(StandardFileCreator.createMimetype(book.getCharset()));
+        epubFiles.add(StandardFileCreator.createContainer(book.getCharset()));
         epubFiles.add(OpfCreator.create(book));
         epubFiles.add(NcxCreator.create(book));
         epubFiles.addAll(ResourceFileCreator.create(book));

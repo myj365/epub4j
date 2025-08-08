@@ -66,7 +66,7 @@ public class OpfCreator {
 
         Element manifest = root.addElement("manifest");
 
-        final String ncxId = UUID.randomUUID().toString();
+        final String ncxId = UUID.randomUUID().toString().replace("-", "");
         Element ncxElement = manifest.addElement("item");
         ncxElement.addAttribute("id", ncxId);
         ncxElement.addAttribute("href", ConstStr.ncxFileName);

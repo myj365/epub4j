@@ -69,4 +69,13 @@ public class StrUtil {
             return prefix + str;
         }
     }
+
+    public static String getFormatNumber(int i) {
+        if (i < 10) return "0000" + i;
+        if (i < 100) return "000" + i;
+        if (i < 1000) return "00" + i;
+        if (i < 10000) return "0" + i;
+        if (i < 100000) return "" + i;
+        return String.valueOf(i);
+    }
 }
